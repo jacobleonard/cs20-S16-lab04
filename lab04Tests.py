@@ -1,8 +1,7 @@
-# lab04Tests.py    Tests for lab04, UCSB CS8, P. Conrad, 04/15/2014
+# lab04Tests.py     SOLO, Jacob Leonard, jacobleonard@umail.ucsb.edu
 
 import unittest            
 from lab04Funcs import *   
-
 
 class TestLab04Functions(unittest.TestCase): 
 
@@ -233,21 +232,9 @@ class TestLab04Functions(unittest.TestCase):
 
     # End of tests for lab04 
 
-
-
-# When you run this file, it runs either ALL the tests, or
-# just some tests.  It depends on which line you comment out (or not)
-
 if __name__ == '__main__':
 
     # To run ALL tests, uncomment the "unittest.main(exit=False)" line
     unittest.main(exit=False)  
-
-    # Uncomment "runTestsWithPrefix" line to run just SOME tests
-    #    First parameter is name of file with tests
-    #    Second parameter is prefix starting with test_ 
-    #      such as test_FtoC  or test_isString
-
-    # runTestsWithPrefix("lab04Tests.py","test_notStringContainingE")
 
 

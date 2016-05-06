@@ -1,5 +1,4 @@
-# lab04Funcs.py     Functions that work on lists
-# P. Conrad for CS8, 04/15/2014
+# lab04Funcs.py   SOLO, Jacob Leonard, jacobleonard@umail.ucsb.edu
 
 from lab02Funcs import isList
 from lab02Funcs import isSimpleNumeric
