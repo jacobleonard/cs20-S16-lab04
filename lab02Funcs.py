@@ -1,5 +1,4 @@
-# lab02Funcs.py     Define a few sample functions in Python
-# P. Conrad for CMPTGCS 20, Spring 2016
+# lab02Funcs.py   SOLO, Jacob Leonard, jacobleonard@umail.ucsb.edu
 
 
 def perimRect(length,width):
