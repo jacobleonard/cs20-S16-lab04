@@ -1,15 +1,8 @@
 # lab04Funcs.py     Functions that work on lists
 # P. Conrad for CS8, 04/15/2014
 
-
 from lab02Funcs import isList
 from lab02Funcs import isSimpleNumeric
-
-
-# @@@
-# @@@ This next function has an error.  Can you fix it?
-# @@@ Hint: you might need to use the "and" or "or" keywords of python
-# @@@ and modify the if test.
 
 def notStringContainingE(word):
    """
@@ -35,17 +28,12 @@ def notStringContainingE(word):
    True
    >>>
    """
-
    if not(type(word)==str):
       return True
    for letter in word:
-     if letter == 'e':   
+     if letter == 'e' or letter=='E':   
        return False
    return True
-
-
-#@@@ Here is a function definition that doesn't pass one or more of its tests.
-#@@@ Fix it!  (Also try to understand why it is wrong)
 
 def hasNoX(word):
    """
@@ -68,21 +56,20 @@ def hasNoX(word):
    >>> hasNoX('x')
    False
    >>>
-
-
    """
-   if (type(word)!=str):
+   if(type(word)!=str):
       return True
    for letter in word:
-     if letter != 'x' and letter != 'X':
-       return True
-   return False
-
+     result=True
+     if (letter != 'x') and (letter != 'X'):
+        result=result and True
+     else:
+        result=False 
+   return result
 
 # The following function is provided for you as an example
 # of how to write a Python function that checks if EVERY element
 # of a list has some property.
-
 
 def isListOfSimpleNumeric(theList):
    """
@@ -125,20 +112,6 @@ def isListOfSimpleNumeric(theList):
    
    return True
 
-
-
-
-
-
-### @@@ NOW, write a function called isListOfIntegers(x)
-### @@@ The function should take anything as an argument, and produce True
-### @@@   only if argument is a list consisting of only int values 
-### @@@ similar to the comments above the other function definitions in this file
-### @@@ See previous function for a clue as to how to proceed
-### @@@ Note that empty list should return True (for same reasoning as in the previous function)
-
-
-
 def isListOfIntegers(theList):
    """
    indicates whether value of argument is a list of only int 
@@ -163,26 +136,15 @@ def isListOfIntegers(theList):
    False
    >>> isListOfIntegers([])
    True
-   
    """
-   return "stub"
-
+   if (not isList(theList)):
+      return False  
    
-   
+   for item in theList:
+     if type(item) != int:
+       return False
 
-### @@@ NOW, write a function called isListOfEvenIntegers(x)
-### @@@ The function should take anything as an argument, and produce True
-### @@@   only if argument is a list consisting of only int values that are even
-### @@@ similar to the comments above the other function definitions in this file
-### @@@ See previous function for a clue as to how to proceed
-### @@@ Note that empty list should return True (for same reasoning as in the previous function)
-
-### @@@ HINT: to avoid problems when using the % operator (that's another hint), use your
-### @@@ isListOfIntegers function first---sort of like the way that isListOfSimpleNumeric
-### @@@ checks first to see if theList is a list.    That way, you kill two birds with one
-### @@@ stone---you immediately know that you are working with a list of integers, and you
-### @@@ only have to worry about whether all of them are even or not.
-
+   return True
 
 def isListOfEvenIntegers(theList):
    """
@@ -213,19 +175,15 @@ def isListOfEvenIntegers(theList):
    >>> isListOfIntegers([])
    True
    >>>
-   
    """
-          
-   return "stub"
-    
+   if (not isListOfIntegers(theList)):
+      return False  
+   
+   for item in theList:
+     if item % 2 != 0:
+       return False
 
-
-
-### @@@ NOW, write a function called totalLength(x)
-### @@@   Use the accumulator pattern to compute the total length of all the words in a string
-### @@@   The accumulator will be an integer that starts at zero.
-### @@@   You'll use a for loop to look at each item in the list
-
+   return True     
 
 def totalLength(listOfStrings):
     """
@@ -241,14 +199,16 @@ def totalLength(listOfStrings):
     >>> totalLength(['x','xxx','xxxx'])
     8
     """
-    return "stub"
+    if (not isList(listOfStrings)):
+       return False  
 
-    
+    result=0   
 
-
-### @@@ NOW, write a function called lengthOfEach
-### @@@  Use the accumulator pattern to make a list of each of the lengths of the words
-### @@@  You'll use a for loop, starting the list as an empty list
+    for item in listOfStrings:
+       if type(item)==str:
+          result= result + len(item)
+      
+    return result
 
 def lengthOfEach(listOfStrings):
     """
@@ -267,26 +227,23 @@ def lengthOfEach(listOfStrings):
     >>> lengthOfEach(['x','xxx','xxxx'])
     [1, 3, 4]
     >>>
-    
-    
     """
-    return "stub"
-    
+    if (not isList(listOfStrings)):
+       return False  
 
+    result=[]   
 
-### @@@ NOW, write a function called countEvens
-### @@@ Use the accumulator pattern, starting at zero
-### @@@  and add one each time you find an even number
-
-
-
+    for item in listOfStrings:
+       if type(item)==str:
+          result= result + [len(item)]
+      
+    return result
 
 def countEvens(listOfInts):
     """
     given a list of ints, counts even ints in list.  Otherwise, returns False.
  
     yields 0 for empty list, or list of ints with no evens in it.
-
 
     >>> countEvens('1')
     False
@@ -303,20 +260,21 @@ def countEvens(listOfInts):
     >>> countEvens([2,3,4])
     2
     >>>
-    
     """
-    return "stub"
+    if (not isList(listOfInts)):
+       return False  
 
+    result=0   
 
-### @@@ NOW, write a function called onlyEvens
-### @@@ Use the accumulator pattern, starting with an empty list.
-### @@@ Use a for loop to traverse the list.  Each time you find an item
-### @@@  if it isn't an int, return False---otherwise, if it is even, add
-### @@@  it to your accumulated list.
-
+    for item in listOfInts:
+       if type(item)==int:
+          if item % 2 == 0:
+             result= result + 1
+      
+    return result
 
 def onlyEvens(listOfInts):
-    """
+   """
     given a list of ints, return new list with only the even ones.  Otherwise, return false.
 
     empty list yields empty list
@@ -338,9 +296,12 @@ def onlyEvens(listOfInts):
     >>> onlyEvens([2,3,4])
     [2, 4]
     >>>
+   """
+   if (not isListOfIntegers(listOfInts)):
+      return False
+   result=[]   
 
-
-
-    """
-
-    return "stub"
+   for item in listOfInts:
+      if item % 2 == 0:
+         result= result + [item]
+   return result

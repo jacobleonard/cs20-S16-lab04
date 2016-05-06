@@ -31,7 +31,7 @@ class TestLab04Functions(unittest.TestCase):
   
     def test_notStringContainingE_8(self):
          self.assertEqual( notStringContainingE(['e']) ,   True)
-  
+
     # tests for hasNoX
   
     def test_hasNoX_1(self):
@@ -80,9 +80,8 @@ class TestLab04Functions(unittest.TestCase):
   
     def test_isListOfSimpleNumeric_8(self):
          self.assertEqual( isListOfSimpleNumeric([]) , True )
-  
+
     # tests for isListOfIntegers
-  
   
     def test_isListOfIntegers_1(self):
          self.assertEqual( isListOfIntegers('Fred') , False )
@@ -110,7 +109,7 @@ class TestLab04Functions(unittest.TestCase):
   
     def test_isListOfIntegers_9(self):
          self.assertEqual( isListOfIntegers([]) , True )
-  
+
     # tests for isListOfEvenIntegers
   
     def test_isListOfEvenIntegers_1(self):
@@ -145,7 +144,7 @@ class TestLab04Functions(unittest.TestCase):
   
     def test_isListOfEvenIntegers_11(self):
          self.assertEqual( isListOfIntegers([]) , True )
-  
+
     # tests for totalLength
 
     def test_totalLength_1(self):
@@ -166,9 +165,7 @@ class TestLab04Functions(unittest.TestCase):
     def test_totalLength_6(self):
         self.assertEqual( totalLength(['x',34,'xxxx']),    5)
 
-    
     # tests for lengthOfEach
-
 
     def test_lengthOfEach_1(self):
         self.assertEqual( lengthOfEach('1') , False )
@@ -207,7 +204,7 @@ class TestLab04Functions(unittest.TestCase):
 
     def test_countEvens_7(self):
         self.assertEqual( countEvens([2,3,4]),    2)
-
+    
     # tests for onlyEvens
 
     def test_onlyEvens_1(self):
@@ -231,21 +228,11 @@ class TestLab04Functions(unittest.TestCase):
     def test_onlyEvens_7(self):
         self.assertEqual( onlyEvens([3,2]),    [2])
 
-    def test_onlyEvens_1(self):
+    def test_onlyEvens_8(self):
         self.assertEqual( onlyEvens([2,3,4]),    [2, 4])
 
     # End of tests for lab04 
 
-
-def runTestsWithPrefix(testFile,prefix):
-    """
-    run only tests from testFile with a certain prefix
-    Example: runTestsWithPrefix("lab03Tests.py","test_isPrimaryColor")
-    """
-    loader = unittest.TestLoader()
-    loader.testMethodPrefix = prefix
-    suite = loader.discover('.', pattern = testFile) 
-    unittest.TextTestRunner(verbosity=2).run(suite)
 
 
 # When you run this file, it runs either ALL the tests, or
@@ -262,3 +249,5 @@ if __name__ == '__main__':
     #      such as test_FtoC  or test_isString
 
     # runTestsWithPrefix("lab04Tests.py","test_notStringContainingE")
+
+
